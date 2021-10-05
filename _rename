@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#use strict;
+#use warnings;
+
+LAMA1="COM001"
+LAMA2="COM011"
+LAMA3="COM021"
+BARU1="COM238"
+BARU2="COM338"
+BARU3="COM438"
+
+echo $BARU3
+
+rename 's/inlist_'$LAMA1'/inlist_'$BARU1'/' inlist_$LAMA1*
+rename 's/inlist_'$LAMA2'/inlist_'$BARU2'/' inlist_$LAMA2*
+rename 's/inlist_'$LAMA3'/inlist_'$BARU3'/' inlist_$LAMA3*
+sed -i 's/'$LAMA1'/'$BARU1'/g' inlist_$BARU1*
+sed -i 's/'$LAMA2'/'$BARU2'/g' inlist_$BARU2*
+sed -i 's/'$LAMA3'/'$BARU3'/g' inlist_$BARU3*
+sed -i 's/'$LAMA1'/'$BARU1'/g' rn_*
+sed -i 's/'$LAMA2'/'$BARU2'/g' rn_*
+sed -i 's/'$LAMA3'/'$BARU3'/g' rn_*
+
+chmod u+x rn_fase1
+chmod u+x rn_fase2

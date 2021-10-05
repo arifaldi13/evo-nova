@@ -1,0 +1,30 @@
+&binary_job
+
+   inlist_names(1) = 'inlist_COM238_star1_fase1' 
+   inlist_names(2) = 'inlist_COM238_star2_fase1'
+
+   evolve_both_stars = .true.
+   binary_history_columns_file = 'daftar_output_binary.list'
+
+/ ! end of binary_job namelist
+
+&binary_controls
+         
+   m1 = 5.0d0  ! donor mass in Msun
+   m2 = 0.3d0 ! companion mass in Msun
+   initial_period_in_days = 800.0d0
+
+   fr = 0.01
+   fr_limit = 1d-3
+   
+   history_name = 'output/binary_history_COM238_fase1.data'
+
+   !accretor_overflow_terminate = 12d0
+   !terminate_if_initial_overflow = .false.
+   
+   limit_retention_by_mdot_edd = .false.
+   photo_digits = 3
+   history_interval = 1
+   photo_directory = 'output/photos/COM238/fase1'
+         
+/ ! end of binary_controls namelist

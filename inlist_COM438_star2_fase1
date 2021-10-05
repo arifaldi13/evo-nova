@@ -1,0 +1,54 @@
+
+! inlist_test_rlo
+
+
+
+&star_job
+
+      show_log_description_at_start = .false.
+      save_model_when_terminate = .true.
+      save_model_filename = 'output/fase1_star2_COM438.mod'
+      pgstar_flag = .true.
+
+/ ! end of star_job namelist
+
+
+
+&controls
+
+      ! check for retries and backups as part of test_suite
+      ! you can/should delete this for use outside of test_suite
+         !max_number_retries = 80
+         !max_number_backups = 0
+         !retry_limit = 100
+         !max_model_number = 1170
+
+      extra_terminal_output_file = 'output/log2_COM438_fase1' 
+      log_directory = 'output/LOGS2/COM438/fase1'
+
+
+      profile_interval = 1000
+      history_interval = 1
+      terminal_interval = 1
+      write_header_frequency = 10
+      
+      varcontrol_target = 1d-3
+      photo_digits = 3
+      photo_directory = 'output/photos/COM438/fase1'
+      
+
+/ ! end of controls namelist
+
+
+&pgstar
+         
+      !Grid6_win_flag = .true.
+      Grid6_win_width = 11   
+      Grid6_file_flag = .true.
+      Grid6_file_dir = 'output/png/COM438/star2'
+      Grid6_file_prefix = 'star2_'
+      Grid6_file_interval = 5 ! output when mod(model_number,Grid6_file_interval)==0
+      Grid6_file_width = -1 ! (inches) negative means use same value as for window
+      Grid6_file_aspect_ratio = -1 ! negative means use same value as for window
+
+/ ! end of pgstar namelist
